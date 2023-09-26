@@ -42,16 +42,12 @@ class MyUserManager(BaseUserManager):
 
 
 class MyUser(AbstractBaseUser):
-    username = models.CharField(null=True, max_length=50, unique=True)
-    email = models.EmailField(
-        verbose_name="email address",
-        max_length=255,
-        unique=True,
-    )
-    fullname = models.CharField(null=True, max_length=50)
-    nickname = models.CharField(null=True, max_length=30, unique=True)
-    birthday = models.DateField()
-    join_date = models.DateTimeField(null=True, auto_now_add=True)
+    username = models.CharField(max_length=50, unique=True)
+    email = models.EmailField(verbose_name="email address", max_length=255, unique=True)
+    fullname = models.CharField(max_length=50)
+    nickname = models.CharField(max_length=30, unique=True)
+    birthday = models.DateField(null=True)
+    join_date = models.DateTimeField(auto_now_add=True)
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
 
