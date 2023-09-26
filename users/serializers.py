@@ -13,3 +13,10 @@ class UserSerializer(serializers.ModelSerializer):
         user.set_password(password)
         user.save()
         return user
+
+    def update(self, validated_data):
+        user = super().create(validated_data)
+        password = user.password
+        user.set_password(password)
+        user.save()
+        return user
